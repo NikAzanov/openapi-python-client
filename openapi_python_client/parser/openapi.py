@@ -270,7 +270,7 @@ class Endpoint:
 
             status_code: HTTPStatus
             try:
-                status_code = HTTPStatus(int(code))
+                status_code = HTTPStatus(int(code if code != "default" else 200))
             except ValueError:
                 endpoint.errors.append(
                     ParseError(
